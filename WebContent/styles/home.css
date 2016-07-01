@@ -1,0 +1,141 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;  
+  
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  
+  font-weight: bold;
+  text-align: center;
+}
+
+.wrapper > * {
+  padding: 10px;
+  flex: 1 100%;
+}
+
+.footer {
+  background-color: black;
+  align-self: flex-end
+}
+
+.main {
+  text-align: left;
+  background: white;
+}
+.header{
+	height: 50px;
+	/*background: #00ABBF;*/
+	background-color: black;
+}
+.header h2{
+	position: absolute;
+	left: 30px;
+	color: white;
+}
+.navigation {
+  margin: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  list-style: none;
+  padding-right: 30px;
+}
+.navigation ul{
+	list-style:none;
+}
+.navigation a {
+  text-decoration: none;
+  display: block;
+  padding: 1em;
+  color: white;
+}
+
+.navigation a:hover {
+  background: darken(deepskyblue, 2%);
+}
+
+.navigation input{
+	height: 20px;
+	text-indent: 20px;
+	width: 200px;
+	margin-top: 15px;
+	margin-right: 100px;
+	border: 0px;
+	border-radius: 5px;
+}
+
+.content{
+	display: flex;
+	flex-direction: column;
+}
+
+.actualite{
+	display: flex;
+	width: 100%;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-top: 10px;
+}
+
+.bloc{
+  margin: 5px;
+  /*background: #00ABBF;*/
+  width: 200px;
+  height: 200px;
+  line-height: 150px;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.bloc .info-profil{
+	width: 100%;
+	height:30px;
+	background-color: black;
+	display:flex;
+	align-items: center;
+	font-size:12px;
+	border-top-left-radius:10px;
+	border-top-right-radius: 10px;
+}
+.user-bloc{
+	margin-left: 20px;
+}
+.content-bloc{
+	height: 200px;
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+}
+.content-bloc a	{
+	width:200px;
+	height:120px;
+}
+.content-bloc a img{
+	width:200px;
+	height:150px;
+}
+.content-bloc p{
+	height:25px;
+	font-size: 12px;
+	display:flex;
+	justify-content: center;
+	flex-direction: column;
+	color: black;
+}
+button{
+	background-color: white;
+	color: black;
+}
