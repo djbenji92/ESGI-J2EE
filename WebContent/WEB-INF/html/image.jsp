@@ -43,19 +43,26 @@ else{
 						<p>Posté par : <%  out.write(p.getLogin()); %> </p>
 						<p>Hashtag : <%  out.write(p.getHashtag()); %> </p>
 						<img src="imgUpload/<% out.write(p.getImage()); %>" >
-						
+						<a href="home">Retour</a>
 					</div>
 					
 				<% } %>
 				
-				<a href="home">Retour</a>
 				
-				<h2>Commentaires </h2>
-				<form action="publierCommentaire" type="post">
-					<textarea rows="4" col="50"></textarea>
+				
+				<h2 class="600 center">Poster un commentaire : </h2>
+				<form class="publier-comments" action="publierCommentaire" type="post">
+					<textarea name="comment" rows="4" col="50"></textarea>
+					<input name="id" value="<% out.write(id); %>">
 					<button type="submit">Envoyer commentaire</button>
 				</form>
-			
+				
+				<h2 class="600 center">Commentaires </h2>
+				<div class="comment">
+					<h2>Michel</h2>
+					<p>Lorem ipius bbbbbla bla bla bla bla bla bla  bla bla bla bla bla blabl al bbbb</p>
+				</div>
+				<div class="separator"></div>
 	    	</div>			
 		</div> 
 	  </article>

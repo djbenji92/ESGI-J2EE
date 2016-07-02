@@ -92,7 +92,7 @@ public class PostManagerSQL implements IPostManager {
 		ResultSet rs= null;
 		try {
 			stmt = this.connection.createStatement();
-			String PostSQL = "SELECT * FROM posts";
+			String PostSQL = "SELECT * FROM posts ORDER BY IdPost DESC";
 			
 			rs = stmt.executeQuery(PostSQL);
 			while(rs.next()){
@@ -181,7 +181,7 @@ public class PostManagerSQL implements IPostManager {
 		ResultSet rs= null;
 		
 		try {
-			String PostSQL = "SELECT * FROM posts WHERE idUser = ?";
+			String PostSQL = "SELECT * FROM posts WHERE idUser = ? ORDER BY idPost DESC";
 			stmt = this.connection.prepareStatement(PostSQL);
 			stmt.setString(1, login);
 			rs = stmt.executeQuery();
