@@ -57,12 +57,31 @@ else{
 					<button type="submit">Envoyer commentaire</button>
 				</form>
 				
+	    	
+				
 				<h2 class="600 center">Commentaires </h2>
 				<div class="comment">
 					<h2>Michel</h2>
 					<p>Lorem ipius bbbbbla bla bla bla bla bla bla  bla bla bla bla bla blabl al bbbb</p>
 				</div>
 				<div class="separator"></div>
+				<div class="comment">
+					<h2>Michel</h2>
+					<p>Lorem ipius bbbbbla bla bla bla bla bla bla  bla bla bla bla bla blabl al bbbb</p>
+				</div>
+				<div class="separator"></div>
+				
+				<% List<Comment> allCommentByImage = (List<Comment>)request.getAttribute("getComments");
+					for(Comment m : allCommentByImage){ %>
+						<div class="comment">
+							<h2><%  out.write(m.getIdUser()); %></h2>
+							<p><%  out.write(m.getText()); %></p>
+							<p><%  out.write(m.getDate()); %></p>
+						</div>
+						<div class="separator"></div>
+					
+					
+				<% } %>
 	    	</div>			
 		</div> 
 	  </article>

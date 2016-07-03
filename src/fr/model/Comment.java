@@ -5,11 +5,11 @@ import java.sql.Date;
 public class Comment {
 	private Integer id;
 	private String text;
-	private Date date;
-	private Integer idUser;
+	private String date;
+	private String idUser;
 	private Integer idPost;
 	
-	public Comment(Integer id, String text, Date date, Integer idUser, Integer idPost) {
+	public Comment(Integer id, String text, String date, String idUser, Integer idPost) {
 		this.id = id;
 		this.text = text;
 		this.date = date;
@@ -33,19 +33,19 @@ public class Comment {
 		this.text = text;
 	}
 	
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	
-	public Integer getIdUser() {
+	public String getIdUser() {
 		return idUser;
 	}
 
-	public void setIdUser(Integer idUser) {
+	public void setIdUser(String idUser) {
 		this.idUser = idUser;
 	}
 	

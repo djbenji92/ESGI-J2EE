@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -20,6 +22,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import fr.model.CommentManagerSQL;
+import fr.model.ICommentManager;
 import fr.model.IPostManager;
 import fr.model.IUserManager;
 import fr.model.Post;
@@ -43,6 +47,7 @@ public class imageUploader extends HttpServlet {
 	
 	private static final String SAVE_DIR = "uploadImage";
 	private IPostManager postManager = new PostManagerSQL();
+	private ICommentManager commentManager = new CommentManagerSQL();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -56,6 +61,7 @@ public class imageUploader extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Methode get image");
 		final String uri = request.getRequestURI();
 		if(uri.contains("/image")) {
 			this.post(request, response);
@@ -78,58 +84,62 @@ public class imageUploader extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Methode post image");
+		
 		PrintWriter out = response.getWriter();
 		
 		final String uri = request.getRequestURI();
 		if(uri.contains("/imageUploader")) {
 			this.endUpload(request, response);
-		} 
-		
-        //chemin d'enregistrement des fichiers
-        String chemin = "/Users/bro/javaJEE/projet-ESGI-J2EE/WebContent/imgUpload/";
-        String fileName = "";
-                 
-        for (Part part : request.getParts()) {
-         
-           fileName = extractFileName(part);
-           
-           String contentType = part.getContentType();
-           if(this.postManager.imageDontExist(fileName)){
-	           if("image/png".equals(contentType) || "image/jpg".equals(contentType) || "image/jpeg".equals(contentType) || "image/gif".equals(contentType)){
-		           if(fileName != ""){
-		        	   part.write(chemin + File.separator + fileName);
-		           }
-		           System.out.println("Upload reussi : " + fileName);
-		           //inserer BDD
-		           final String titre = request.getParameter("titre");
-		           final String hashtag = request.getParameter("hashtag");
-		           String user = (String) request.getSession().getAttribute("userSession");
-		           //enregistre BDD
-		           System.out.println("titre : " + titre);
-		           System.out.println("hashtag : " + hashtag);
-		           System.out.println("filename : " + fileName);
-		           System.out.println("user : " + user);
-		           if(this.postManager.insertPost(titre, hashtag, fileName, user)){
-		           	System.out.println("post sauvegarder");
-		           	request.setAttribute("message", "Upload has been done successfully!");
+			
+			//chemin d'enregistrement des fichiers
+	        String chemin = "/Users/bro/javaJEE/projet-ESGI-J2EE/WebContent/imgUpload/";
+	        String fileName = "";
+	                 
+	        for (Part part : request.getParts()) {
+	         
+	           fileName = extractFileName(part);
+	           
+	           String contentType = part.getContentType();
+	           if(this.postManager.imageDontExist(fileName)){
+		           if("image/png".equals(contentType) || "image/jpg".equals(contentType) || "image/jpeg".equals(contentType) || "image/gif".equals(contentType)){
+			           if(fileName != ""){
+			        	   part.write(chemin + File.separator + fileName);
+			           }
+			           System.out.println("Upload reussi : " + fileName);
+			           //inserer BDD
+			           final String titre = request.getParameter("titre");
+			           final String hashtag = request.getParameter("hashtag");
+			           String user = (String) request.getSession().getAttribute("userSession");
+			           //enregistre BDD
+			           System.out.println("titre : " + titre);
+			           System.out.println("hashtag : " + hashtag);
+			           System.out.println("filename : " + fileName);
+			           System.out.println("user : " + user);
+			           if(this.postManager.insertPost(titre, hashtag, fileName, user)){
+			           	System.out.println("post sauvegarder");
+			           	request.setAttribute("message", "Upload has been done successfully!");
+			           }
+			           else{
+			           	System.out.println("erreur lors du post");
+			           	request.setAttribute("errorMessage", "Erreur lors de l'enregistrement de l'image");
+			           }
 		           }
 		           else{
-		           	System.out.println("erreur lors du post");
-		           	request.setAttribute("errorMessage", "Erreur lors de l'enregistrement de l'image");
+		        	   System.out.println("Mauvais format");
+		        	   request.setAttribute("errorMessage", "Veuillez envoyez une image sous le format git, jpg, ou gif");
 		           }
+		           System.out.println("Image existe pas");
 	           }
 	           else{
-	        	   System.out.println("Mauvais format");
-	        	   request.setAttribute("errorMessage", "Veuillez envoyez une image sous le format git, jpg, ou gif");
+	        	   System.out.println("Image deja existante");
+	        	   request.setAttribute("errorMessage", "Image déja existante, veuillez la renommer");
 	           }
-	           System.out.println("Image existe pas");
-           }
-           else{
-        	   System.out.println("Image deja existante");
-        	   request.setAttribute("errorMessage", "Image déja existante, veuillez la renommer");
-           }
-   
-        }
+	   
+	        }
+		} 
+		
+        
         
         
 	}
@@ -149,6 +159,8 @@ public class imageUploader extends HttpServlet {
 		Integer idPost = Integer.parseInt(request.getParameter("id"));
 		System.out.println("id de la page : " + idPost);
 		request.setAttribute("getPost2", this.postManager.getPost2(idPost));
+		request.setAttribute("getComments", this.commentManager.allCommentByImage(idPost));
+		
 		//request.setAttribute("postList", this.postManager.allPosts());
 		request.getRequestDispatcher("/WEB-INF/html/image.jsp").forward(request, response);
 		
