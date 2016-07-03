@@ -29,6 +29,8 @@ import fr.model.IUserManager;
 import fr.model.Post;
 import fr.model.PostManagerSQL;
 import fr.model.UserManagerSQL;
+import fr.model.IFavorisManager;
+import fr.model.FavorisManagerSQL;
 
 /**
  * Servlet implementation class imageUploader
@@ -48,6 +50,7 @@ public class imageUploader extends HttpServlet {
 	private static final String SAVE_DIR = "uploadImage";
 	private IPostManager postManager = new PostManagerSQL();
 	private ICommentManager commentManager = new CommentManagerSQL();
+	private IFavorisManager favorisManager = new FavorisManagerSQL();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -160,6 +163,7 @@ public class imageUploader extends HttpServlet {
 		System.out.println("id de la page : " + idPost);
 		request.setAttribute("getPost2", this.postManager.getPost2(idPost));
 		request.setAttribute("getComments", this.commentManager.allCommentByImage(idPost));
+		request.setAttribute("getFavoris", this.favorisManager.verifImageFavoris(idPost));
 		
 		//request.setAttribute("postList", this.postManager.allPosts());
 		request.getRequestDispatcher("/WEB-INF/html/image.jsp").forward(request, response);

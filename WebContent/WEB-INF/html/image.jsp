@@ -48,6 +48,20 @@ else{
 					
 				<% } %>
 				
+				<% Boolean favorisExist = (Boolean)request.getAttribute("getFavoris");
+					if(favorisExist){
+						%>
+							<a href="service-favoris?id=<%out.write(id);%>&meth=del">Supprimer des favoris</a>
+						<%
+						
+						
+					}
+					else{
+						%>
+							<a href="service-favoris?id=<%out.write(id);%>&meth=add">Ajouter aux favoris</a>
+						<%
+					}
+				%>
 				
 				
 				<h2 class="600 center">Poster un commentaire : </h2>
@@ -60,14 +74,10 @@ else{
 	    	
 				
 				<h2 class="600 center">Commentaires </h2>
+				
 				<div class="comment">
-					<h2>Michel</h2>
-					<p>Lorem ipius bbbbbla bla bla bla bla bla bla  bla bla bla bla bla blabl al bbbb</p>
-				</div>
-				<div class="separator"></div>
-				<div class="comment">
-					<h2>Michel</h2>
-					<p>Lorem ipius bbbbbla bla bla bla bla bla bla  bla bla bla bla bla blabl al bbbb</p>
+					<h2>Nom commentaire</h2>
+					<p>Exemple de post de commentaire</p>
 				</div>
 				<div class="separator"></div>
 				

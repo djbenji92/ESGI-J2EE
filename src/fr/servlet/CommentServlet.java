@@ -68,6 +68,9 @@ public class CommentServlet extends HttpServlet {
           System.out.println("erreur lors du commentaire");
           request.setAttribute("errorMessage", "Erreur lors de l'enregistrement du commentaire");
         }
+        
+        response.sendRedirect("image?id=" +  id);
+		return;
    
 		
 	}

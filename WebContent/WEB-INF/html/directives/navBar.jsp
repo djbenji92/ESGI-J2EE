@@ -7,6 +7,7 @@
 			</form>
 			<li><a href="publierImage">Publier...</a></li>
 			<li><a href="mes-images">Mes posts</a></li>
+			<li><a href="mes-favoris">Mes favoris</a></li>
 			<li><a href="#">Profil</a></li>
 			<li><a href="logout">Déconnexion</a></li>
 		</ul>
