@@ -1,40 +1,69 @@
 body{
 	margin: 0;
 	padding: 0;
+	
+}
+
+.logo {
+	width:5px;
+	height:auto;
+	
+}
+
+.content {
+	position:relative;
+	background-color:#f5f5f1;
+}
+
+.publier h1 {
+	font-family: 'Oswald', sans-serif;
+	color:#421e1e;
+	text-align:center;
+	margin-top:10%;
+	
+}
+
+h2 {
+	font-family: 'Oswald', sans-serif;
+	color:#421e1e;
+	
+	
 }
 
 .wrapper {
+background-color:#f5f5f1;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;  
-  
   -webkit-flex-flow: row wrap;
   flex-flow: row wrap;
-  
   font-weight: bold;
   text-align: center;
 }
 
 .wrapper > * {
   padding: 10px;
+  
   flex: 1 100%;
 }
 
 .footer {
   background-color: black;
-  align-self: flex-end
+  align-self: flex-end;
+  margin-top:30%;
+  background: #421e1e;
+  
 }
 
 .main {
   text-align: left;
-  background: white;
+  background: 000;
 }
 .header{
 	height: 50px;
-	/*background: #00ABBF;*/
-	background-color: black;
+	background: #421e1e;
 }
 .header h2{
 	position: absolute;
@@ -55,8 +84,8 @@ body{
 .navigation a {
   text-decoration: none;
   display: block;
-  padding: 1em;
-  color: white;
+  padding: 2em;
+  color: black;
 }
 
 .navigation a:hover {
@@ -65,11 +94,12 @@ body{
 
 .navigation input{
 	height: 20px;
-	text-indent: 20px;
-	width: 200px;
-	margin-top: 15px;
-	margin-right: 100px;
-	border: 0px;
+	text-indent: 80px;
+	width: 250px;
+	margin-top: 30px;
+	margin-right: 210px;
+	border-color:#421e1e;
+	border-width:2px;
 	border-radius: 5px;
 }
 
@@ -87,10 +117,10 @@ body{
 }
 
 .bloc{
-  margin: 5px;
+  margin: 20px;
   /*background: #00ABBF;*/
-  width: 200px;
-  height: 200px;
+  width: 500px;
+  height: 500px;
   line-height: 150px;
   color: white;
   font-weight: bold;
@@ -124,20 +154,26 @@ body{
 	height:120px;
 }
 .content-bloc a img{
-	width:200px;
-	height:150px;
+	width:500px;
+	height:470px;
+	border-radius:1%;
 }
 .content-bloc p{
-	height:25px;
+	height:69%;
 	font-size: 12px;
 	display:flex;
 	justify-content: center;
 	flex-direction: column;
-	color: black;
+	color: white;
+	margin-top:-41%;
 }
 button{
-	background-color: black;
+	background-color: #421e1e;
+	font-family: 'Oswald', sans-serif;
+	width:605px;
+	height:30px;
 	color: white;
+	font-size:15px;
 }
 
 .post-image{
@@ -157,7 +193,7 @@ button{
 	text-align:center;
 	height: 40px;
 	line-height: 40px;
-	background-color:black;
+  	background-color: #421e1e;
 	width:100%;
 	color: white;
 }
@@ -200,3 +236,5 @@ textarea{
 	background-color: black;
 	margin: auto;
 }
+
+

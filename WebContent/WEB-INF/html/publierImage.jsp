@@ -14,15 +14,18 @@
 	  <article class="main">
 	    <div class="content">	
 	    	<div class="publier">
+	    	<center>
 		    	<h1>Publier une nouvelle image :</h1>
 				<form class="form-publish" action="imageUploader" method="post" enctype="multipart/form-data">
 					<input name="titre" placeholder="Titre de la publication">
-					<input name="hashtag" placeholder="Hashtags">
+					<input name="hashtag" placeholder="Vos Hashtags #">
 					<input type="file" name="file" size="60"/>
 					<button id="submitPublish" type="submit">Publier</button>
 				</form>
 	    	</div>
 		</div> 
+		
+		</center>
 	  </article>
 	  <footer class="footer">Footer</footer>
 	</div>

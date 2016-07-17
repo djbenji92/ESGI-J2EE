@@ -27,14 +27,13 @@ else{
 	<div class="wrapper">
 	
 	<jsp:directive.include file="directives/navBar.jsp" />
+		    	<p>Connecté sous l'utilisateur : <% if(user != null) {out.write(user);} %></p>
+	
 	
 	  <article class="main">
 	    <div class="content">
-	    	<p>Connecté sous : <% if(user != null) {out.write(user);} %></p>
-	    	
-	    	<div class="actualite">
-	    		
-				
+	 	   	<div class="actualite">
+	    			
 				<% List<Post> allPosts = (List<Post>)request.getAttribute("postList");
 					for(Post p : allPosts){ %>
 		    		<div class="bloc">

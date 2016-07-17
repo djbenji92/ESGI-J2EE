@@ -39,11 +39,11 @@ else{
 			<% List<Post> allPosts = (List<Post>)request.getAttribute("getPost2");
 					for(Post p : allPosts){ %>
 					<div class="post-image">
-						<p>Intitulé de la publication : <% out.write(p.getTitre()); %></p>
+						<p>Nom de la publication : <% out.write(p.getTitre()); %></p>
 						<p>Posté par : <%  out.write(p.getLogin()); %> </p>
 						<p>Hashtag : <%  out.write(p.getHashtag()); %> </p>
 						<img src="imgUpload/<% out.write(p.getImage()); %>" >
-						<a href="home">Retour</a>
+						<a href="home">Retour au fil d'actualité</a>
 					</div>
 					
 				<% } %>

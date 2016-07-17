@@ -131,5 +131,12 @@ public class UserManagerDB implements IUserManager {
 		return userList;
 	}
 
+
+	@Override
+	public User getUser(String login) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
 

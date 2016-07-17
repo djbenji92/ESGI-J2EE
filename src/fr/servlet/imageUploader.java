@@ -96,7 +96,7 @@ public class imageUploader extends HttpServlet {
 			this.endUpload(request, response);
 			
 			//chemin d'enregistrement des fichiers
-	        String chemin = "/Users/bro/javaJEE/projet-ESGI-J2EE/WebContent/imgUpload/";
+	        String chemin = "/Volumes/DATA/Users/jeffbenchimol/Documents/ESGI - 2015 - 2016/Semestre_2/JAVA J2EE/ESGI-J2EE/WebContent";
 	        String fileName = "";
 	                 
 	        for (Part part : request.getParts()) {

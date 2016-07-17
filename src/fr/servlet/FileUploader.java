@@ -192,7 +192,7 @@ public class FileUploader extends HttpServlet {
 	        // constructs path of the directory to save uploaded file
 	        String savePath = appPath + SAVE_DIR;
 	        
-	        String chemin = "/Users/bro/javaJEE/projet-ESGI-J2EE/WebContent/";
+	        String chemin = "/Volumes/DATA/Users/jeffbenchimol/Documents/ESGI - 2015 - 2016/Semestre_2/JAVA J2EE/ESGI-J2EE/WebContent";
 	         
 	        // creates the save directory if it does not exists
 	        File fileSaveDir = new File(request.getServletContext().getRealPath("/") + SAVE_DIR);
